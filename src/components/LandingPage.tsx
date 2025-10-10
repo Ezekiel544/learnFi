@@ -5,6 +5,7 @@ import { WaitlistModal } from './WaitlistModal';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { AppState, User } from '../App';
+import logo from './figma/logo.png'
 
 interface LandingPageProps {
   onNavigate: (page: AppState, user?: User) => void;
@@ -220,7 +221,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-6 h-6 bg-white rounded-full"></div>
+                <div className="w-8 h-8 rounded-full"><img src={logo} alt="" srcset=""   className="w-8 h-8 rounded-full"/></div>
                 <span className="text-white text-lg">LearnFi</span>
               </div>
               <p className="text-blue-100 mb-4 text-sm">Empowering education through decentralized finance.</p>
