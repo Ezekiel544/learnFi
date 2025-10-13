@@ -96,10 +96,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           >
             <p className="text-lg text-blue-300">
               Education is powerful, but in today's world, it often comes expensive, inaccessible and hard to 
-              verify. LearnFi changes this by combining education, blockchain and decentralized finance
-            </p>
-            <p className="text-lg text-blue-300">
-              into a single ecosystem that rewards both learners and creators.
+              verify. LearnFi changes this by combining education, blockchain and decentralized finance   into a single ecosystem that rewards both learners and creators.
             </p>
             <p className="text-lg text-blue-300">
               LearnFi is a learn-to-earn platform where users are rewarded for engaging with 
@@ -221,7 +218,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 rounded-full"><img src={logo} alt="" srcset=""   className="w-8 h-8 rounded-full"/></div>
+                <div className="w-8 h-8 rounded-full"><img src={logo} alt=""   className="w-8 h-8 rounded-full"/></div>
                 <span className="text-white text-lg">LearnFi</span>
               </div>
               <p className="text-blue-100 mb-4 text-sm">Empowering education through decentralized finance.</p>
