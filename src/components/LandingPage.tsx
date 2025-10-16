@@ -66,6 +66,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
       title: 'For Institutions & Employers',
       description: 'LearnFi allows the ability to access verified blockchain certificates, making skill verification fast and reliable.',
       icon: '🏢'
+    },
+     {
+      title: ' STAKING MECHANISM',
+      description: 'Users get to stake their token and NFT for Rewards.',
+      icon: '💲'
     }
   ];
 
