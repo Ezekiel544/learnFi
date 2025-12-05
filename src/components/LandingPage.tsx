@@ -79,6 +79,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
       <Navbar 
         onJoinWaitlist={() => setIsModalOpen(true)}
         onNavigateToLeaderboard={() => onNavigate('leaderboard')}
+        onNavigateToLookup={() => onNavigate('lookup')}
       />
 
       {/* Hero Section */}

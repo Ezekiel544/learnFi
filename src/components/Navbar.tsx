@@ -3,12 +3,18 @@ import { motion } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import logo from './figma/logo.png'
+
 interface NavbarProps {
   onJoinWaitlist: () => void;
   onNavigateToLeaderboard: () => void;
+  onNavigateToLookup: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onJoinWaitlist, onNavigateToLeaderboard }) => {
+export const Navbar: React.FC<NavbarProps> = ({ 
+  onJoinWaitlist, 
+  onNavigateToLeaderboard,
+  onNavigateToLookup 
+}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -21,7 +27,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onJoinWaitlist, onNavigateToLead
     // { label: 'Community', href: '#' },
     // { label: 'Docs', href: '#' },
     // { label: 'Blog', href: '#' },
-    { label: 'Leaderboard', href: '#', onClick: onNavigateToLeaderboard }
+    { label: 'Leaderboard', href: '#', onClick: onNavigateToLeaderboard },
+    { label: 'Check Status', href: '#', onClick: onNavigateToLookup }
   ];
 
   return (

@@ -141,3 +141,56 @@ export async function validateReferralCode(referralCode: string): Promise<boolea
     return false;
   }
 }
+
+// NEW FUNCTION: Get user data by email with leaderboard rank
+export async function getUserByEmail(email: string): Promise<User & { rank: number } | null> {
+  try {
+    // Query for the specific user
+    const userQuery = query(
+      collection(db, 'waitlist'), 
+      where('email', '==', email)
+    );
+    
+    const userSnapshot = await getDocs(userQuery);
+    
+    if (userSnapshot.empty) {
+      return null;
+    }
+
+    const userDoc = userSnapshot.docs[0];
+    const userData = userDoc.data();
+
+    // Get all users sorted by referral count to calculate rank
+    const leaderboardQuery = query(
+      collection(db, 'waitlist'), 
+      orderBy('referralCount', 'desc')
+    );
+    
+    const leaderboardSnapshot = await getDocs(leaderboardQuery);
+    
+    // Find user's rank
+    let rank = 1;
+    for (const doc of leaderboardSnapshot.docs) {
+      if (doc.id === userDoc.id) {
+        break;
+      }
+      rank++;
+    }
+
+    const user: User & { rank: number } = {
+      id: userDoc.id,
+      name: userData.name,
+      email: userData.email,
+      referralCode: userData.referralCode,
+      referredBy: userData.referredBy,
+      referralCount: userData.referralCount || 0,
+      createdAt: userData.createdAt?.toDate() || new Date(),
+      rank
+    };
+
+    return user;
+  } catch (error) {
+    console.error('Error fetching user by email:', error);
+    throw new Error('Failed to fetch user data. Please try again.');
+  }
+}

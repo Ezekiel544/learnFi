@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { LandingPage } from './components/LandingPage';
 import { SuccessPage } from './components/SuccessPage';
 import { LeaderboardPage } from './components/LeaderboardPage';
+import { UserLookup } from './components/point';
 import { Preloader } from './components/Preloader';
 
 export type User = {
@@ -15,7 +16,7 @@ export type User = {
   createdAt: Date;
 };
 
-export type AppState = 'landing' | 'success' | 'leaderboard';
+export type AppState = 'landing' | 'success' | 'leaderboard' | 'lookup';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<AppState>('landing');
@@ -63,6 +64,9 @@ function App() {
       )}
       {currentPage === 'leaderboard' && (
         <LeaderboardPage onNavigate={handlePageChange} />
+      )}
+      {currentPage === 'lookup' && (
+        <UserLookup onNavigate={handlePageChange} />
       )}
     </div>
   );
